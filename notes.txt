@@ -1,0 +1,24 @@
+#preview for the Article preview component:
+
+## What's the challenge?
+    My challenge is to build article preview component as close as design as possible, and using JavaScript to  initiate the share options when someone clicks the share icon.
+
+## What are the requirements?
+    The users should be able to: 
+        - View the optimal layout for the component depending on their device's screen size.
+        - See the social media share links when they click the share icon.
+
+## Ideas to test myself:
+    - Write the styles using a pre-processor, such as Sass.
+    - Train my eye for detail by getting my solution as close to the design as I can.
+    - Try estimating the time it will take for me to build the project. Then see if the time taken matches up to I estimate.
+
+## Search and resources:
+   
+
+## The time it took:
+    - my estimate is : (5 hours deep work) with notes and researchs.
+    - The real time: (
+        - for review  the work and take notes: 30m.
+        - The work: ()
+    )
