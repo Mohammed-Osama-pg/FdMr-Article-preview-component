@@ -1,3 +1,5 @@
+// Reset CSS
+
 *,
 *::before,
 *::after {
@@ -13,6 +15,7 @@ html {
 }
 
 /* min body height */
+
 body {
   min-height: 100vh;
 }
@@ -34,4 +37,4 @@ svg,
 video {
   display: block;
   max-width: 100%;
-}/*# sourceMappingURL=style.css.map */
+}
