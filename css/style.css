@@ -85,6 +85,10 @@ html {
 /* min body height */
 body {
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3.75rem;
 }
 
 h1,
@@ -104,12 +108,6 @@ svg,
 video {
   display: block;
   max-width: 100%;
-}
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .share-btn {
@@ -133,4 +131,31 @@ body {
 }
 .share-btn:hover .share-btn__icon {
   background-image: url("../images/icon-share-hover.svg");
+}
+
+.author {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.9375rem;
+}
+.author-img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.author-info__name {
+  font-weight: 700;
+  font-size: 0.8125rem;
+  line-height: 140%;
+  letter-spacing: 0.0075rem;
+  color: var(--clr-gray_900);
+}
+.author-info__date {
+  font-weight: 500;
+  font-size: 0.8125rem;
+  line-height: 140%;
+  letter-spacing: 0.0075rem;
+  color: var(--clr-gray_400);
 }/*# sourceMappingURL=style.css.map */

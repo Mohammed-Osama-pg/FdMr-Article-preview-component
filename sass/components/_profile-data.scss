@@ -1,0 +1,24 @@
+@use "../helpers" as *;
+
+.author {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(15);
+  &-img {
+    width: rem(40);
+    height: rem(40);
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  &-info {
+    &__name {
+      @include text-p3;
+      color: $clr-gray_900;
+    }
+    &__date {
+      @include text-p2;
+      color: $clr-gray_400;
+    }
+  }
+}

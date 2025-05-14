@@ -28,13 +28,13 @@ $breakpoints: (
   font-weight: 500;
   font-size: rem(13);
   line-height: 140%;
-  letter-spacing: 0.12%;
+  letter-spacing: rem(0.12);
 }
 @mixin text-p3 {
   font-weight: 700;
   font-size: rem(13);
   line-height: 140%;
-  letter-spacing: 0.12%;
+  letter-spacing: rem(0.12);
 }
 
 @mixin text-p4 {

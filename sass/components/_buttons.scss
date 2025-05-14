@@ -1,11 +1,5 @@
 @use "../helpers" as *;
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .share-btn {
   width: rem(32);
   height: rem(32);
