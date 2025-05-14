@@ -1,0 +1,71 @@
+@use "../helpers" as *;
+
+.share-nav {
+  position: absolute;
+  z-index: 2;
+  min-width: rem(327);
+  justify-content: flex-start;
+  align-items: center;
+  padding: rem(22) rem(30);
+  background-color: $clr-gray_900;
+  border-radius: 0 0 rem(10) rem(10);
+  display: flex;
+  transform: translateY(100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s ease-in-out;
+
+  .label {
+    @include text-p4;
+    color: $clr-gray_400;
+    margin-right: rem(24);
+  }
+  .icons {
+    height: rem(32);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: rem(16);
+    width: 100%;
+  }
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  @include breakpoint("md") {
+    min-width: rem(248);
+    padding: rem(16.5) rem(38.5);
+    border-radius: rem(10);
+    position: absolute;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      border: rem(24) solid transparent;
+      border-top: rem(24) solid $clr-gray_900;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@keyframes showShare {
+  0% {
+    display: none;
+  }
+  5% {
+    display: flex;
+    transform: translateY(100%);
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}

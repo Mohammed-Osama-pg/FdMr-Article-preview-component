@@ -1,6 +1,8 @@
 @use "../helpers" as *;
 
 .share-btn {
+  position: relative;
+  z-index: 5;
   width: rem(32);
   height: rem(32);
   background-color: $clr-gray_200;
