@@ -1,0 +1,50 @@
+@use "./functions" as *;
+
+@use "sass:map";
+
+// ! BREAKPOINTS -----------------------------------
+$breakpoints: (
+  "s": rem(768),
+  "md": rem(768),
+  "lg": rem(1280),
+  "xl": rem(1440),
+);
+
+@mixin breakpoint($size) {
+  @media (width >= map.get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+// ! WIDTH ---------------------------------------------
+@mixin fluid-width($size-min, $size-max, $min-value, $max-value) {
+  $min-vw: map.get($breakpoints, $size-min);
+  $max-vw: map.get($breakpoints, $size-max);
+
+  $factor: 1 / ($max-vw - $min-vw) * ($max-value - $min-value);
+  $calc-value: unquote(
+    "#{ $min-value - ($min-vw * $factor) } + #{ 100vw * $factor }"
+  );
+
+  width: $min-value; // Fallback for older browsers
+  width: clamp(
+    #{if($min-value > $max-value, $max-value, $min-value)},
+    #{$calc-value},
+    #{if($min-value > $max-value, $min-value, $max-value)}
+  );
+}
+
+// ! FONTS ---------------------------------------------
+@mixin fluid-type($min-vw, $max-vw, $min-value, $max-value) {
+  $factor: 1 / ($max-vw - $min-vw) * ($max-value - $min-value);
+  $calc-value: unquote(
+    "#{ $min-value - ($min-vw * $factor) } + #{ 100vw * $factor }"
+  );
+
+  font-size: $min-value; // Fallback for older browsers
+  font-size: clamp(
+    #{if($min-value > $max-value, $max-value, $min-value)},
+    #{$calc-value},
+    #{if($min-value > $max-value, $min-value, $max-value)}
+  );
+}
