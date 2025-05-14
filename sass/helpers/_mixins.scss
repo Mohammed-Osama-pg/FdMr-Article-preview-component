@@ -15,3 +15,31 @@ $breakpoints: (
     @content;
   }
 }
+
+// ! TYPOGRAPHY -----------------------------------
+@mixin text-p1 {
+  font-weight: 700;
+  font-size: rem(20);
+  line-height: 130%;
+  letter-spacing: rem(0.25);
+}
+
+@mixin text-p2 {
+  font-weight: 500;
+  font-size: rem(13);
+  line-height: 140%;
+  letter-spacing: 0.12%;
+}
+@mixin text-p3 {
+  font-weight: 700;
+  font-size: rem(13);
+  line-height: 140%;
+  letter-spacing: 0.12%;
+}
+
+@mixin text-p4 {
+  font-weight: 700;
+  font-size: rem(13);
+  line-height: 140%;
+  letter-spacing: 25%;
+}
