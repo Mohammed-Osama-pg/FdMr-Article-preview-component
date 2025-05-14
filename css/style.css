@@ -1,3 +1,73 @@
+/* 
+
+Okay, I will provide examples of how to use the fluid-width function you defined in _mixins.scss.
+
+The fluid-width function is designed to generate a CSS clamp value that allows a property (like font size, margin, or padding) to scale fluidly between two breakpoints. Let's break down how to use it with some examples.
+
+*Understanding the Parameters
+
+$size-min: The name of the smallest breakpoint (key in $breakpoints map).
+$size-max: The name of the largest breakpoint (key in $breakpoints map).
+$min-value: The value of the property at the smallest breakpoint (e.g., 16px).
+$max-value: The value of the property at the largest breakpoint (e.g., 24px).
+Assumptions
+
+For these examples, let's assume your $breakpoints map looks something like this:
+! $breakpoints: (
+!   'sm': 576px,
+!   'md': 768px,
+!   'lg': 992px,
+!   'xl': 1200px
+! );
+
+*Example 1: Fluid Font Size
+
+Let's say you want a font size that scales between 16px at the sm breakpoint and 24px at the xl breakpoint.
+!   @use 'path/to/mixins' as mixins; // Adjust the path to where your _mixins.scss file is located
+!   .element {
+!       font-size: mixins.fluid-width('sm', 'xl', 16px, 24px);
+!       }
+
+
+In this example:
+
+We import the _mixins.scss file using @use. Make sure the path is correct.
+We call the fluid-width function with the appropriate arguments. The result will be a clamp() value that the browser uses to determine the font size based on the viewport width.
+The compiled CSS would look something like this (the exact values might be slightly different depending on the breakpoint values):
+
+!   .element {
+!      font-size: clamp(16px, calc(13.33333333px + 1.33333333vw), 24px);
+!    }
+
+Example 2: Fluid Margin
+!   @use 'path/to/mixins' as mixins;
+
+!   .container {
+!     margin-left: mixins.fluid-width('md', 'lg', 10px, 20px);
+!     margin-right: mixins.fluid-width('md', 'lg', 10px, 20px);
+!   }
+
+You can use this for any CSS property that accepts numeric values. For example, let's make the left and right margins of a container fluid:
+
+This will generate CSS that makes the left and right margins scale between 10px at the md breakpoint and 20px at the lg breakpoint.
+
+*Important Considerations
+
+@use: Always remember to import the _mixins.scss file where you define the function using @use. The as mixins part is optional but recommended to avoid naming conflicts.
+Units: Make sure your $min-value and $max-value have the same units (e.g., both in px, both in rem, etc.).
+Breakpoint Names: The $size-min and $size-max parameters must match the keys you've defined in your $breakpoints map.
+Path: Adjust the path to _mixins.scss according to your project structure. If style.scss and _mixins.scss are in the same directory, you can simply use @use '_mixins' as mixins;.
+These examples should give you a good starting point for using the fluid-width function in your project. Remember to adjust the breakpoint names, values, and units to fit your specific design needs.
+
+*/
+:root {
+  --clr-white: #ffffff;
+  --clr-gray_900: #48556a;
+  --clr-gray_500: #6e8098;
+  --clr-gray_400: #9daec2;
+  --clr-gray_200: #ecf2f8;
+}
+
 *,
 *::before,
 *::after {
