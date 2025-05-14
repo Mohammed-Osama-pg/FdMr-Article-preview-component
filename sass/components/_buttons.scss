@@ -1,0 +1,32 @@
+@use "../helpers" as *;
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.share-btn {
+  width: rem(32);
+  height: rem(32);
+  background-color: $clr-gray_200;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: 0.3s ease-in-out;
+
+  &__icon {
+    background-image: url("../images/icon-share.svg");
+    width: rem(15);
+    height: rem(13);
+    transition: 0.3s ease-in-out;
+  }
+
+  &:hover {
+    background-color: $clr-gray_500;
+    .share-btn__icon {
+      background-image: url("../images/icon-share-hover.svg");
+    }
+  }
+}

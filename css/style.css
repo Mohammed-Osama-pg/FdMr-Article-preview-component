@@ -104,4 +104,33 @@ svg,
 video {
   display: block;
   max-width: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.share-btn {
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--clr-gray_200);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: 0.3s ease-in-out;
+}
+.share-btn__icon {
+  background-image: url("../images/icon-share.svg");
+  width: 0.9375rem;
+  height: 0.8125rem;
+  transition: 0.3s ease-in-out;
+}
+.share-btn:hover {
+  background-color: var(--clr-gray_500);
+}
+.share-btn:hover .share-btn__icon {
+  background-image: url("../images/icon-share-hover.svg");
 }/*# sourceMappingURL=style.css.map */
