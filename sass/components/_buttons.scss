@@ -11,6 +11,7 @@
   align-items: center;
   border-radius: 50%;
   transition: 0.3s ease-in-out;
+  cursor: pointer;
 
   &__icon {
     background-image: url("../images/icon-share.svg");
@@ -19,7 +20,7 @@
     transition: 0.3s ease-in-out;
   }
 
-  &:hover {
+  &.active {
     background-color: $clr-gray_500;
     .share-btn__icon {
       background-image: url("../images/icon-share-hover.svg");

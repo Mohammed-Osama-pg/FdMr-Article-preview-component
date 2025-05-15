@@ -31,6 +31,7 @@ body {
     flex-direction: column;
     gap: rem(48);
     border-radius: 0 0 rem(10) rem(10);
+    position: relative;
   }
   &-text {
     display: flex;
@@ -54,5 +55,13 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .share {
+      &-nav {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+    }
   }
 }
