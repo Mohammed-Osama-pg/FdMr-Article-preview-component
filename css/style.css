@@ -125,10 +125,10 @@ video {
   height: 0.8125rem;
   transition: 0.3s ease-in-out;
 }
-.share-btn.active {
+.share-btn:focus, .share-btn:hover, .share-btn.active {
   background-color: var(--clr-gray_500);
 }
-.share-btn.active .share-btn__icon {
+.share-btn:focus .share-btn__icon, .share-btn:hover .share-btn__icon, .share-btn.active .share-btn__icon {
   background-image: url("../images/icon-share-hover.svg");
 }
 
@@ -188,6 +188,9 @@ video {
   align-items: center;
   gap: 1rem;
   width: 100%;
+}
+.share-nav .icons__icon {
+  cursor: pointer;
 }
 .share-nav.active {
   opacity: 1;

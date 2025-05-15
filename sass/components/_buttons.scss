@@ -19,7 +19,8 @@
     height: rem(13);
     transition: 0.3s ease-in-out;
   }
-
+  &:focus,
+  &:hover,
   &.active {
     background-color: $clr-gray_500;
     .share-btn__icon {
