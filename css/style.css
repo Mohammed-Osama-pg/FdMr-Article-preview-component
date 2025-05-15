@@ -2,18 +2,18 @@
 
 Okay, I will provide examples of how to use the fluid-width function you defined in _mixins.scss.
 
-The fluid-width function is designed to generate a CSS clamp value that allows a property (like font size, margin, or padding) to scale fluidly between two breakpoints. Let's break down how to use it with some examples.
+The fluid-width function is designed to generate a CSS clamp value that allows a property (like font size, margin, or padding) to scale fluidly between two width. Let's break down how to use it with some examples.
 
 *Understanding the Parameters
 
-$size-min: The name of the smallest breakpoint (key in $breakpoints map).
-$size-max: The name of the largest breakpoint (key in $breakpoints map).
+$size-min: The name of the smallest breakpoint (key in $width map).
+$size-max: The name of the largest breakpoint (key in $width map).
 $min-value: The value of the property at the smallest breakpoint (e.g., 16px).
 $max-value: The value of the property at the largest breakpoint (e.g., 24px).
 Assumptions
 
-For these examples, let's assume your $breakpoints map looks something like this:
-! $breakpoints: (
+For these examples, let's assume your $width map looks something like this:
+! $width: (
 !   'sm': 576px,
 !   'md': 768px,
 !   'lg': 992px,
@@ -55,7 +55,7 @@ This will generate CSS that makes the left and right margins scale between 10px 
 
 @use: Always remember to import the _mixins.scss file where you define the function using @use. The as mixins part is optional but recommended to avoid naming conflicts.
 Units: Make sure your $min-value and $max-value have the same units (e.g., both in px, both in rem, etc.).
-Breakpoint Names: The $size-min and $size-max parameters must match the keys you've defined in your $breakpoints map.
+Breakpoint Names: The $size-min and $size-max parameters must match the keys you've defined in your $width map.
 Path: Adjust the path to _mixins.scss according to your project structure. If style.scss and _mixins.scss are in the same directory, you can simply use @use '_mixins' as mixins;.
 These examples should give you a good starting point for using the fluid-width function in your project. Remember to adjust the breakpoint names, values, and units to fit your specific design needs.
 
@@ -160,6 +160,9 @@ video {
 }
 
 .share-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   z-index: 2;
   min-width: 20.4375rem;
   justify-content: flex-start;
@@ -201,8 +204,11 @@ video {
   .share-nav {
     min-width: 15.5rem;
     padding: 1.03125rem 2.40625rem;
-    border-radius: 0.625rem;
     position: absolute;
+    bottom: calc(100% + 1.75rem);
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    border-radius: 0.625rem;
   }
   .share-nav::before {
     content: "";
@@ -213,15 +219,28 @@ video {
     border-top: 1.5rem solid var(--clr-gray_900);
     transform: translateX(-50%);
   }
+  .share-nav.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 body {
   background-color: var(--clr-gray_200);
 }
+@media (width >= 48rem) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
 
 .article {
   margin: 4rem 1.5rem;
   box-shadow: 0 2.5rem 2.5rem rgba(201, 213, 225, 0.5034);
+  max-width: clamp(20.4375rem, 3.679389313rem + 71.5012722646vw, 38rem);
 }
 .article-img {
   width: 100%;
@@ -275,8 +294,33 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-.article-author__share .share-nav {
-  position: absolute;
-  left: 0;
-  bottom: 0;
+@media (width >= 48rem) {
+  .article {
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 21.625rem;
+  }
+  .article-img {
+    height: 100%;
+    border-radius: 0.625rem 0 0 0.625rem;
+  }
+  .article-img img {
+    -o-object-position: 40% center;
+       object-position: 40% center;
+  }
+  .article-content {
+    height: 100%;
+    padding: 1.875rem 2.5625rem 2.25rem;
+    gap: 1.5rem;
+    border-radius: 0 0.625rem 0.625rem 0;
+    position: relative;
+  }
+  .article-text {
+    width: 19.4375rem;
+  }
+  .article .share {
+    position: relative;
+  }
 }/*# sourceMappingURL=style.css.map */

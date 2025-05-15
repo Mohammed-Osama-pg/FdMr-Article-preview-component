@@ -1,7 +1,9 @@
 @use "../helpers" as *;
 
 .share-nav {
-  // position: absolute;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   z-index: 2;
   min-width: rem(327);
   justify-content: flex-start;
@@ -41,8 +43,11 @@
   @include breakpoint("md") {
     min-width: rem(248);
     padding: rem(16.5) rem(38.5);
-    border-radius: rem(10);
     position: absolute;
+    bottom: calc(100% + rem(28));
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    border-radius: rem(10);
 
     &::before {
       content: "";
@@ -52,6 +57,12 @@
       border: rem(24) solid transparent;
       border-top: rem(24) solid $clr-gray_900;
       transform: translateX(-50%);
+    }
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
     }
   }
 }

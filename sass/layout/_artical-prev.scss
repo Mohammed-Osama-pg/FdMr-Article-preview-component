@@ -2,11 +2,17 @@
 
 body {
   background-color: $clr-gray_200;
+  @include breakpoint("md") {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .article {
   margin: rem(64) rem(24);
   box-shadow: 0 rem(40) rem(40) rgba(#c9d5e1, 50.34%);
+  max-width: fluid-v("s", "md", rem(327), rem(608));
 
   &-img {
     width: 100%;
@@ -55,13 +61,36 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
 
-    .share {
-      &-nav {
-        position: absolute;
-        left: 0;
-        bottom: 0;
+  @include breakpoint("md") {
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: rem(346);
+
+    &-img {
+      height: 100%;
+      border-radius: rem(10) 0 0 rem(10);
+
+      img {
+        object-position: 40% center;
       }
+    }
+    &-content {
+      height: 100%;
+      padding: rem(30) rem(41) rem(36);
+      gap: rem(24);
+      border-radius: 0 rem(10) rem(10) 0;
+      position: relative;
+    }
+
+    &-text {
+      width: rem(311);
+    }
+    .share {
+      position: relative;
     }
   }
 }

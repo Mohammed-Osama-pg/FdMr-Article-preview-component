@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "sass:map";
 
 @function rem($pixel) {
   @return math.div($pixel, 16) * 1rem;
@@ -7,9 +8,16 @@
   @return math.div($pixel, 16) * 1em;
 }
 
+$width: (
+  "s": rem(375),
+  "md": rem(768),
+  "lg": rem(1280),
+  "xl": rem(1440),
+);
+
 @function fluid-v($size-min, $size-max, $min-value, $max-value) {
-  $min-vw: map.get($breakpoints, $size-min);
-  $max-vw: map.get($breakpoints, $size-max);
+  $min-vw: map.get($width, $size-min);
+  $max-vw: map.get($width, $size-max);
 
   $factor: 1 / ($max-vw - $min-vw) * ($max-value - $min-value);
   $calc-value: unquote(
@@ -27,18 +35,18 @@
 
 Okay, I will provide examples of how to use the fluid-width function you defined in _mixins.scss.
 
-The fluid-width function is designed to generate a CSS clamp value that allows a property (like font size, margin, or padding) to scale fluidly between two breakpoints. Let's break down how to use it with some examples.
+The fluid-width function is designed to generate a CSS clamp value that allows a property (like font size, margin, or padding) to scale fluidly between two width. Let's break down how to use it with some examples.
 
 *Understanding the Parameters
 
-$size-min: The name of the smallest breakpoint (key in $breakpoints map).
-$size-max: The name of the largest breakpoint (key in $breakpoints map).
+$size-min: The name of the smallest breakpoint (key in $width map).
+$size-max: The name of the largest breakpoint (key in $width map).
 $min-value: The value of the property at the smallest breakpoint (e.g., 16px).
 $max-value: The value of the property at the largest breakpoint (e.g., 24px).
 Assumptions
 
-For these examples, let's assume your $breakpoints map looks something like this:
-! $breakpoints: (
+For these examples, let's assume your $width map looks something like this:
+! $width: (
 !   'sm': 576px,
 !   'md': 768px,
 !   'lg': 992px,
@@ -80,7 +88,7 @@ This will generate CSS that makes the left and right margins scale between 10px 
 
 @use: Always remember to import the _mixins.scss file where you define the function using @use. The as mixins part is optional but recommended to avoid naming conflicts.
 Units: Make sure your $min-value and $max-value have the same units (e.g., both in px, both in rem, etc.).
-Breakpoint Names: The $size-min and $size-max parameters must match the keys you've defined in your $breakpoints map.
+Breakpoint Names: The $size-min and $size-max parameters must match the keys you've defined in your $width map.
 Path: Adjust the path to _mixins.scss according to your project structure. If style.scss and _mixins.scss are in the same directory, you can simply use @use '_mixins' as mixins;.
 These examples should give you a good starting point for using the fluid-width function in your project. Remember to adjust the breakpoint names, values, and units to fit your specific design needs.
 
