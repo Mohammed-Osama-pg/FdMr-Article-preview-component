@@ -44,15 +44,16 @@
     min-width: rem(248);
     padding: rem(16.5) rem(38.5);
     position: absolute;
-    bottom: calc(100% + rem(28));
+    bottom: calc(100% + rem(31));
     left: 50%;
     transform: translateX(-50%) translateY(100%);
     border-radius: rem(10);
+    box-shadow: 0 rem(10) rem(10) rgba(201, 213, 225, 0.5034);
 
     &::before {
       content: "";
       position: absolute;
-      top: 100%;
+      top: calc(100% - rem(2));
       left: 50%;
       border: rem(24) solid transparent;
       border-top: rem(24) solid $clr-gray_900;
@@ -63,6 +64,9 @@
       opacity: 1;
       visibility: visible;
       transform: translateX(-50%) translateY(0);
+    }
+    .icons {
+      height: rem(20);
     }
   }
 }

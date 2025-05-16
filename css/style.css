@@ -205,15 +205,16 @@ video {
     min-width: 15.5rem;
     padding: 1.03125rem 2.40625rem;
     position: absolute;
-    bottom: calc(100% + 1.75rem);
+    bottom: calc(100% + 1.9375rem);
     left: 50%;
     transform: translateX(-50%) translateY(100%);
     border-radius: 0.625rem;
+    box-shadow: 0 0.625rem 0.625rem rgba(201, 213, 225, 0.5034);
   }
   .share-nav::before {
     content: "";
     position: absolute;
-    top: 100%;
+    top: calc(100% - 0.125rem);
     left: 50%;
     border: 1.5rem solid transparent;
     border-top: 1.5rem solid var(--clr-gray_900);
@@ -223,6 +224,9 @@ video {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
+  }
+  .share-nav .icons {
+    height: 1.25rem;
   }
 }
 
