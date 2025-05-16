@@ -93,4 +93,25 @@ body {
       position: relative;
     }
   }
+
+  @include breakpoint("lg") {
+    max-width: rem(730);
+    max-height: rem(280);
+
+    &-img {
+      width: rem(285);
+
+      img {
+        object-position: 18% bottom;
+      }
+    }
+
+    &-content {
+      height: auto;
+      padding: rem(30) rem(40);
+    }
+    &-text {
+      width: rem(365);
+    }
+  }
 }

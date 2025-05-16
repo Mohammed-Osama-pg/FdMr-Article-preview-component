@@ -323,4 +323,24 @@ body {
   .article .share {
     position: relative;
   }
+}
+@media (width >= 80rem) {
+  .article {
+    max-width: 45.625rem;
+    max-height: 17.5rem;
+  }
+  .article-img {
+    width: 17.8125rem;
+  }
+  .article-img img {
+    -o-object-position: 18% bottom;
+       object-position: 18% bottom;
+  }
+  .article-content {
+    height: auto;
+    padding: 1.875rem 2.5rem;
+  }
+  .article-text {
+    width: 22.8125rem;
+  }
 }/*# sourceMappingURL=style.css.map */
